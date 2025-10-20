@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 大容器，设置为相对定位以便子元素绝对定位参考 */
+        .container1{
+            background-color: rgb(26, 140, 215);
+            width: 1200px;
+            height: 600px;
+            position: relative;
+            margin: 20px auto;
+        }
+        /* 两个小方块，绝对定位以覆盖在大容器上 */
+        .container3,
+        .container4{
+            background-color: rgb(30, 24, 196);
+            height: 80px;
+            width: 200px;
+            position: absolute;
+            top: 20px; /* 距离大容器顶部 20px，可按需调整 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            z-index: 2; /* 保证在大容器内容之上 */
+        }
+        /* 左右放置 */
+        .container3{ left: 20px; }
+        .container4{ right: 20px; }
+
+        .box{
+            text-align: center;
+            color: #fff;
+            line-height: 600px; /* 让h2垂直居中（也可以用flex） */
+            margin: 0;
+            font-size: 24px;
+            z-index: 1;
+            position: relative;
+        }
+    </style>
+
+</head>
+<body>
+     <div class="container1">
+         <h2 class="box">我是h2,跑到中间来了</h2>
+         <div class="container3">我是200*80的左</div>
+         <div class="container4">我是200*80的右</div>
+     </div>
+     <div class="container2"></div>
+    
+</body>
+</html>
